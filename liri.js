@@ -1,14 +1,14 @@
 // read and set environment variables with dotenv package
 require("dotenv").config();
-var fs = require("fs");
-var moment = require("moment");
-var keys = require("./keys.js");
-var axios = require("axios");
-var Spotify = require("node-spotify-api");
-var spotify = new Spotify(keys.spotify);
+let fs = require("fs");
+let moment = require("moment");
+let keys = require("./keys.js");
+let axios = require("axios");
+let Spotify = require("node-spotify-api");
+let spotify = new Spotify(keys.spotify);
 
-var request = process.argv[2];
-var userInput = process.argv.slice(3).join(" ");
+let request = process.argv[2];
+let userInput = process.argv.slice(3).join(" ");
 
 switch (request) {
     case "concert":
@@ -60,10 +60,10 @@ function spotifyThis() {
     })
 }
 
-// functin for searching for movies using omdb api
+// function for searching for movies using omdb api
 function omdbThis() {
     if (userInput === "") {
-      axios.get("http://www.omdbapi.com/?t=mr+nobody&apikey=trilogy").then(
+      axios.get(`http://www.omdbapi.com/?t=mr+nobody&apikey=trilogy`).then(
         function (response) {
           console.log(response.data.Title);
           console.log(response.data.Year);
@@ -76,7 +76,7 @@ function omdbThis() {
         }
       )
     } else {
-      axios.get("http://www.omdbapi.com/?t=${userInput}&apikey=trilogy").then(
+      axios.get(`http://www.omdbapi.com/?t=${userInput}&apikey=trilogy`).then(
         function (response) {
           console.log(response.data.Title);
           console.log(response.data.Year);
@@ -91,7 +91,7 @@ function omdbThis() {
     }
   }
 
-//   function that uses the random.txt as input
+// function that uses the random.txt as input
 function doIt() {
     fs.readFile("random.txt", "utf8", function(err, data) {
         dataArr = data.split(",");
