@@ -20,7 +20,7 @@ switch (request) {
         break;
 
     case "movie":
-        ombdThis();
+        omdbThis();
         break;
 
     case "do-what-it-says":
@@ -60,7 +60,8 @@ function spotifyThis() {
     })
 }
 
-function ombdThis() {
+// functin for searching for movies using omdb api
+function omdbThis() {
     if (userInput === "") {
       axios.get("http://www.omdbapi.com/?t=mr+nobody&apikey=trilogy").then(
         function (response) {
@@ -75,7 +76,7 @@ function ombdThis() {
         }
       )
     } else {
-      axios.get(`http://www.omdbapi.com/?t=${userInput}&apikey=trilogy`).then(
+      axios.get("http://www.omdbapi.com/?t=${userInput}&apikey=trilogy").then(
         function (response) {
           console.log(response.data.Title);
           console.log(response.data.Year);
@@ -90,4 +91,4 @@ function ombdThis() {
     }
   }
 
-  
+
