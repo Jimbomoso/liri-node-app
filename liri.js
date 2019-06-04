@@ -91,4 +91,20 @@ function omdbThis() {
     }
   }
 
-
+function doIt() {
+    fs.readFile("random.txt", "utf8", function(err, data) {
+        dataArr = data.split(",");
+        request = dataArr[0];
+        userInput = dataArr[1];
+        if (request === "spotify") {
+            spotifyThis();
+        } else if (request === "movie") {
+            omdbThis();
+        } else if (request === "concert") {
+            console.log(userInput)
+            bitThis();
+        } else {
+            return console.log(err)
+        }
+    })
+}
