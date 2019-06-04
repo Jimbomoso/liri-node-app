@@ -91,6 +91,7 @@ function omdbThis() {
     }
   }
 
+//   function that uses the random.txt as input
 function doIt() {
     fs.readFile("random.txt", "utf8", function(err, data) {
         dataArr = data.split(",");
